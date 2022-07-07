@@ -43,8 +43,11 @@ public class CameraActivity extends AppCompatActivity {
 
     private Button camera;
     private Button gallery;
+    private Button next;
     private ImageView selectedImage;
     private String currentPhotoPath;
+
+    private int received = 0;
 
 
     @Override
@@ -52,7 +55,6 @@ public class CameraActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
         setUI();
-        getDataFromMain();
 
         camera.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +68,13 @@ public class CameraActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(galleryIntent, GALLERY_REQUEST_CODE);
+            }
+        });
+
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getDataFromMain();
             }
         });
     }
@@ -186,17 +195,39 @@ public class CameraActivity extends AppCompatActivity {
         camera = findViewById(R.id.cameraBtn);
         gallery = findViewById(R.id.galleryBtn);
         selectedImage = findViewById(R.id.imageView);
+        next = findViewById(R.id.nextButton2);
     }
 
     private void getDataFromMain(){
         Intent caller = getIntent();
         String prename = caller.getStringExtra(vornameIntent);
         String surname = caller.getStringExtra(nachnameIntent);
-        double weight = caller.getDoubleExtra(gewichtIntent, 80);
-        double height = caller.getDoubleExtra(groesseIntent, 1.80);
+        Double weight = caller.getDoubleExtra(gewichtIntent, 80);
+        Double height = caller.getDoubleExtra(groesseIntent, 1.80);
         String date = caller.getStringExtra(geburtsdatumIntent);
         String position = caller.getStringExtra(positionIntent);
+        Log.d("tag", "MainData: " + prename + "," + surname + "," + weight + "," + height + "," + date + "," + position);
+        if(prename != null && surname != null && date != null && weight != null && height != null
+            && position != null){
+            sendDataToResult(prename, surname, weight, height, date, position);
+        }
+
     }
+
+    private void sendDataToResult(String prename, String surname, Double weight, Double height, String date, String position) {
+        Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
+        intent.putExtra(ResultActivity.vornameIntent1, prename);
+        intent.putExtra(ResultActivity.nachnameIntent1, surname);
+        intent.putExtra(ResultActivity.geburtsdatumIntent1, date);
+        intent.putExtra(ResultActivity.groesseIntent1, weight);
+        intent.putExtra(ResultActivity.gewichtIntent1, height);
+        intent.putExtra(ResultActivity.positionIntent1, position);
+        startActivity(intent);
+    }
+
+
+
+
 
 
 
