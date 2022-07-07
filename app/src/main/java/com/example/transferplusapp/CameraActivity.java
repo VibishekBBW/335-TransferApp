@@ -46,6 +46,7 @@ public class CameraActivity extends AppCompatActivity {
     private Button next;
     private ImageView selectedImage;
     private String currentPhotoPath;
+    private Uri sendUrl;
 
     private int received = 0;
 
@@ -118,6 +119,7 @@ public class CameraActivity extends AppCompatActivity {
                 //Set Image with Uri from File f
                 File f = new File(currentPhotoPath);
                 selectedImage.setImageURI(Uri.fromFile(f));
+                sendUrl = Uri.fromFile(f);
                 Log.d("tag", "Absolute Url of image is " + Uri.fromFile(f));
 
                 //Display Image to Gallery with MediaScan
@@ -136,8 +138,9 @@ public class CameraActivity extends AppCompatActivity {
                 Uri contentUri = data.getData();
                 String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
                 String imageFileName = "JPEG_" + timeStamp + "." + getFileExt(contentUri);
-                Log.d("tag", "onActivityResult: Gallery Image Uri: " + imageFileName);
+                Log.d("tag", "onActivityResult: Gallery Image Uri: " + contentUri);
                 selectedImage.setImageURI(contentUri);
+                sendUrl = contentUri;
             }
         }
 
@@ -208,20 +211,22 @@ public class CameraActivity extends AppCompatActivity {
         String position = caller.getStringExtra(positionIntent);
         Log.d("tag", "MainData: " + prename + "," + surname + "," + weight + "," + height + "," + date + "," + position);
         if(prename != null && surname != null && date != null && weight != null && height != null
-            && position != null){
-            sendDataToResult(prename, surname, weight, height, date, position);
+            && position != null && sendUrl != null){
+            sendDataToResult(prename, surname, weight, height, date, position, sendUrl);
         }
 
     }
 
-    private void sendDataToResult(String prename, String surname, Double weight, Double height, String date, String position) {
+    private void sendDataToResult(String prename, String surname, Double weight, Double height, String date, String position, Uri sendUrl) {
         Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
+        Log.d("tag", "url data to send: " + sendUrl);
         intent.putExtra(ResultActivity.vornameIntent1, prename);
         intent.putExtra(ResultActivity.nachnameIntent1, surname);
         intent.putExtra(ResultActivity.geburtsdatumIntent1, date);
         intent.putExtra(ResultActivity.groesseIntent1, weight);
         intent.putExtra(ResultActivity.gewichtIntent1, height);
         intent.putExtra(ResultActivity.positionIntent1, position);
+        intent.putExtra(ResultActivity.urlIntent1, sendUrl.toString());
         startActivity(intent);
     }
 

@@ -16,4 +16,6 @@
     <string name="next2">Next</string>
     <string name="cameraBtn">Camera</string>
     <string name="galleryBtn">Gallery</string>
+    <string name="bmi">BMI</string>
+    <string name="bmiH">bmi</string>
 </resources>
