@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">TransferPlusApp</string>
+    <string name="vorname">Vorname</string>
+    <string name="vornameH">vorname</string>
+    <string name="nachname">Nachname</string>
+    <string name="nachnameH">nachname</string>
+    <string name="geburtsdatum">Geburtsdatum</string>
+    <string name="geburtsdatumH">geburtsdatum</string>
+    <string name="groesse">Grösse</string>
+    <string name="groesseH">grösse</string>
+    <string name="gewicht">Gewicht</string>
+    <string name="gewichtH">gewicht</string>
+    <string name="position">Position</string>
+    <string name="positionH">position</string>
+    <string name="next1">Next</string>
+    <string name="next2">Next</string>
+    <string name="cameraBtn">Camera</string>
+    <string name="galleryBtn">Gallery</string>
+</resources>
