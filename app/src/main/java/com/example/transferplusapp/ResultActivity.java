@@ -2,11 +2,13 @@ package com.example.transferplusapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class ResultActivity extends AppCompatActivity {
     public static final String vornameIntent1 = "vorname";
@@ -18,6 +20,16 @@ public class ResultActivity extends AppCompatActivity {
     public static final String urlIntent1 = "url";
 
     private ImageView selectedImage;
+    private TextView vorname;
+    private TextView nachname;
+    private TextView geburtsdatum;
+    private TextView gewicht;
+    private TextView groesse;
+    private TextView positionF;
+    private TextView bmiF;
+
+    private BMIService bmiService;
+    private boolean serviceBound = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +37,8 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
         setUI();
     }
+
+
 
     private void getDataFromCamera(){
         Intent caller = getIntent();
@@ -41,6 +55,13 @@ public class ResultActivity extends AppCompatActivity {
         Log.d("tag", "ImageView to Uri Parse: " + rurl);
         setImage(rurl);
         //selectedImage.setImageURI(Uri.parse(url));
+        vorname.setText(prename);
+        nachname.setText(surname);
+        geburtsdatum.setText(date);
+        gewicht.setText(weight.toString());
+        groesse.setText(height.toString());
+        positionF.setText(position);
+
     }
 
     private void setImage(Uri rurl){
@@ -49,6 +70,13 @@ public class ResultActivity extends AppCompatActivity {
 
     private void setUI(){
         selectedImage = (ImageView) findViewById(R.id.imageView2);
+        vorname = findViewById(R.id.vornameData);
+        nachname = findViewById(R.id.nachnameData);
+        geburtsdatum = findViewById(R.id.datumData);
+        gewicht = findViewById(R.id.gewichtData);
+        groesse = findViewById(R.id.groesseData);
+        positionF = findViewById(R.id.positionData);
+        bmiF = findViewById(R.id.bmiData);
         getDataFromCamera();
     }
 
