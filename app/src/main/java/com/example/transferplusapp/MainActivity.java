@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Please fill all the data.", Toast.LENGTH_SHORT).show();
         }
 
-
     }
 
     /*

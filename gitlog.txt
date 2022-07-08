@@ -1,0 +1,41 @@
+commit c7cdf338ff792ca90dfc2b7a5b9dd42e4cb1085b
+Author: Vibishek Rathirajan <vibrat@az.zli.ch>
+Date:   Fri Jul 8 10:34:02 2022 +0200
+
+    verfeinerungen
+
+commit ec8897d3d8dd9259227eac931700e9dd8b2ab534
+Author: Vibishek Rathirajan <vibrat@az.zli.ch>
+Date:   Fri Jul 8 09:47:29 2022 +0200
+
+    getBmi implemented and display BMI done
+
+commit 5de98b80300489f7079dfcd86927f342e2cb4c82
+Author: Vibishek Rathirajan <vibrat@az.zli.ch>
+Date:   Fri Jul 8 09:42:52 2022 +0200
+
+    service implemented and binded to Result
+
+commit edff3f9b18b88b7e3dcea1d15b8ed47ce8ed85c9
+Author: Vibishek Rathirajan <vibrat@az.zli.ch>
+Date:   Fri Jul 8 09:01:23 2022 +0200
+
+    display data in Result done except bmi
+
+commit b50bad378fd0c345ef87e863fc7143f9f619d4a2
+Author: VibishekBBW <vibishek.rathirajan@lernende.bbw.ch>
+Date:   Fri Jul 8 01:46:25 2022 +0200
+
+    image transfer to ResultActivity done
+
+commit 059deb0a6eec357ab72d555b40600378fe42c4bd
+Author: VibishekBBW <vibishek.rathirajan@lernende.bbw.ch>
+Date:   Fri Jul 8 00:46:39 2022 +0200
+
+    send Data from main to Result done
+
+commit 09c5f40b760587ac2fc1b9bd9e093db28198b4bd
+Author: VibishekBBW <vibishek.rathirajan@lernende.bbw.ch>
+Date:   Thu Jul 7 23:07:55 2022 +0200
+
+    gallery done
