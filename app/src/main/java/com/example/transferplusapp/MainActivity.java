@@ -30,12 +30,12 @@ public class MainActivity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                sendDataToResult();
+                sendDataToCamera();
             }
         });
     }
 
-    private void sendDataToResult(){
+    private void sendDataToCamera(){
         Intent intent = new Intent(getApplicationContext(), CameraActivity.class);
         if(!TextUtils.isEmpty(vorname.getText().toString()) && !TextUtils.isEmpty(nachname.getText().toString()) &&
                 !TextUtils.isEmpty(geburtsdatum.getText().toString()) && !TextUtils.isEmpty(groesse.getText().toString())
