@@ -106,9 +106,9 @@ public class ResultActivity extends AppCompatActivity {
     private void calculateBMI(){
         if(weight != null && height != null){
             if(serviceBound){
-                //double bmiValue = bmiService.getBMI(weight, height);
-                //Log.d("tag", "BMIValue: " + bmiValue + " groesse: " + height + " gewicht: " + weight);
-                //bmiF.setText(String.valueOf(bmiValue));
+                double bmiValue = bmiService.getBMI(weight, height);
+                Log.d("tag", "BMIValue: " + bmiValue + " groesse: " + height + " gewicht: " + weight);
+                bmiF.setText(String.valueOf(bmiValue));
             }
         }
     }

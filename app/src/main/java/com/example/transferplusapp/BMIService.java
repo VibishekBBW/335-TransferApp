@@ -24,9 +24,7 @@ public class BMIService extends Service {
         return binder;
     }
 
-    /*
     public double getBMI(double weight, double height) {
         return (weight / (height * height)) * 100;
     }
-     */
 }
